@@ -38,3 +38,21 @@ app.get("/magic/:input", (req, res) => {
 	res.send("Your quesion: " + question + "? \n Magic 8 Ball Response: " + randResponse + ".");
 	// res.send(randResponse);
 })
+
+// FIBONACCI
+
+app.get('/fibonacci/:num', (req, res) => {
+	const fibs = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765] // can eventually make a program to do this, but using the first 20 fibs to test the express stuff
+	let isFib;
+	for (let i = 0; i < fibs.length; i++) {
+		if (fibs[i] == req.params.num) {
+			let isFib = true;
+			console.log(isFib);
+			res.send("Sweet number, dude.")
+		} 
+	}
+
+	if (isFib != true)	{
+		res.send("Brah, I can tell this ain't a fibonacci number. Wack.")
+	}
+})
